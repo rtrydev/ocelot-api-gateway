@@ -57,6 +57,21 @@
           "port": 80
         }
       ]
+    },
+    {
+      "priority": 0,
+      "downstreamPathTemplate": "/api/t/tag/{}",
+      "upstreamPathTemplate": "/api/tag/{}",
+      "upstreamHttpMethod": [
+        "GET"
+      ],
+      "downstreamScheme": "http",
+      "downstreamHostAndPorts": [
+        {
+          "host": "tags-clusterip-srv",
+          "port": 80
+        }
+      ]
     }
   ]
   
