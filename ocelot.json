@@ -18,7 +18,7 @@
       "downstreamPathTemplate": "/api/t/tag",
       "upstreamPathTemplate": "/api/tag",
       "upstreamHttpMethod": [
-        "GET", "POST"
+        "GET", "POST", "PUT"
       ],
       "downstreamScheme": "http",
       "downstreamHostAndPorts": [
@@ -48,7 +48,7 @@
       "downstreamPathTemplate": "/api/t/anime/{}/tag",
       "upstreamPathTemplate": "/api/anime/{}/tag",
       "upstreamHttpMethod": [
-        "GET", "PUT"
+        "GET", "PUT", "DELETE"
       ],
       "downstreamScheme": "http",
       "downstreamHostAndPorts": [
