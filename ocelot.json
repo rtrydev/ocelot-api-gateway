@@ -1,0 +1,63 @@
+{
+  "Routes": [
+    {
+      "downstreamPathTemplate": "/api/anime",
+      "upstreamPathTemplate": "/api/anime",
+      "upstreamHttpMethod": [
+        "GET", "POST"
+      ],
+      "downstreamScheme": "http",
+      "downstreamHostAndPorts": [
+        {
+          "host": "anime-clusterip-srv",
+          "port": 80
+        }
+      ]
+    },
+    {
+      "downstreamPathTemplate": "/api/t/tag",
+      "upstreamPathTemplate": "/api/tag",
+      "upstreamHttpMethod": [
+        "GET", "POST"
+      ],
+      "downstreamScheme": "http",
+      "downstreamHostAndPorts": [
+        {
+          "host": "tags-clusterip-srv",
+          "port": 80
+        }
+      ]
+    },
+    {
+      "priority": 0,
+      "downstreamPathTemplate": "/api/anime/{}",
+      "upstreamPathTemplate": "/api/anime/{}",
+      "upstreamHttpMethod": [
+        "GET"
+      ],
+      "downstreamScheme": "http",
+      "downstreamHostAndPorts": [
+        {
+          "host": "anime-clusterip-srv",
+          "port": 80
+        }
+      ]
+    },
+    {
+      "priority": 1,
+      "downstreamPathTemplate": "/api/t/anime/{}/tag",
+      "upstreamPathTemplate": "/api/anime/{}/tag",
+      "upstreamHttpMethod": [
+        "GET", "PUT"
+      ],
+      "downstreamScheme": "http",
+      "downstreamHostAndPorts": [
+        {
+          "host": "tags-clusterip-srv",
+          "port": 80
+        }
+      ]
+    }
+  ]
+  
+}
