@@ -4,7 +4,7 @@
       "downstreamPathTemplate": "/api/anime",
       "upstreamPathTemplate": "/api/anime",
       "upstreamHttpMethod": [
-        "GET", "POST"
+        "GET", "POST", "PUT"
       ],
       "downstreamScheme": "http",
       "downstreamHostAndPorts": [
