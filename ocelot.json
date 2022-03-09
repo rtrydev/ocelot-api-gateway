@@ -4,7 +4,7 @@
       "downstreamPathTemplate": "/api/anime",
       "upstreamPathTemplate": "/api/anime",
       "upstreamHttpMethod": [
-        "GET", "POST", "PUT"
+        "Get", "Post", "Put"
       ],
       "downstreamScheme": "http",
       "downstreamHostAndPorts": [
@@ -18,7 +18,7 @@
       "downstreamPathTemplate": "/api/t/tag",
       "upstreamPathTemplate": "/api/tag",
       "upstreamHttpMethod": [
-        "GET", "POST", "PUT"
+        "Get", "Post", "Put"
       ],
       "downstreamScheme": "http",
       "downstreamHostAndPorts": [
@@ -33,7 +33,7 @@
       "downstreamPathTemplate": "/api/anime/{}",
       "upstreamPathTemplate": "/api/anime/{}",
       "upstreamHttpMethod": [
-        "GET"
+        "Get"
       ],
       "downstreamScheme": "http",
       "downstreamHostAndPorts": [
@@ -48,7 +48,22 @@
       "downstreamPathTemplate": "/api/t/anime/{}/tag",
       "upstreamPathTemplate": "/api/anime/{}/tag",
       "upstreamHttpMethod": [
-        "GET", "PUT", "DELETE"
+        "Get"
+      ],
+      "downstreamScheme": "http",
+      "downstreamHostAndPorts": [
+        {
+          "host": "tags-clusterip-srv",
+          "port": 80
+        }
+      ]
+    },
+    {
+      "priority": 2,
+      "downstreamPathTemplate": "/api/t/anime/{animeId}/tag/{tagId}",
+      "upstreamPathTemplate": "/api/anime/{animeId}/tag/{tagId}",
+      "upstreamHttpMethod": [
+        "Delete", "Put"
       ],
       "downstreamScheme": "http",
       "downstreamHostAndPorts": [
@@ -63,7 +78,7 @@
       "downstreamPathTemplate": "/api/t/tag/{}",
       "upstreamPathTemplate": "/api/tag/{}",
       "upstreamHttpMethod": [
-        "GET"
+        "Get"
       ],
       "downstreamScheme": "http",
       "downstreamHostAndPorts": [
