@@ -1,10 +1,25 @@
 {
   "Routes": [
     {
-      "downstreamPathTemplate": "/api/a/user/{}",
-      "upstreamPathTemplate": "/api/user/{}",
+      "priority": 1,
+      "downstreamPathTemplate": "/api/a/user/{id}",
+      "upstreamPathTemplate": "/api/user/{id}",
       "upstreamHttpMethod": [
-        "Get",
+        "Get"
+      ],
+      "downstreamScheme": "http",
+      "downstreamHostAndPorts": [
+        {
+          "host": "auth-clusterip-srv",
+          "port": 80
+        }
+      ]
+    },
+    {
+      "priority": 0,
+      "downstreamPathTemplate": "/api/a/user/login",
+      "upstreamPathTemplate": "/api/user/login",
+      "upstreamHttpMethod": [
         "Post"
       ],
       "downstreamScheme": "http",
@@ -13,12 +28,27 @@
           "host": "auth-clusterip-srv",
           "port": 80
         }
+      ]
+    },
+    {
+      "priority": 0,
+      "downstreamPathTemplate": "/api/a/user/register",
+      "upstreamPathTemplate": "/api/user/register",
+      "upstreamHttpMethod": [
+        "Post"
+      ],
+      "downstreamScheme": "http",
+      "downstreamHostAndPorts": [
+        {
+          "host": "auth-clusterip-srv",
+          "port": 80
+        }
+      ]
     },
     {
       "downstreamPathTemplate": "/api/anime",
       "upstreamPathTemplate": "/api/anime",
       "upstreamHttpMethod": [
-        "Get",
         "Post",
         "Put"
       ],
@@ -35,10 +65,23 @@
       }
     },
     {
+      "downstreamPathTemplate": "/api/anime",
+      "upstreamPathTemplate": "/api/anime",
+      "upstreamHttpMethod": [
+        "Get"
+      ],
+      "downstreamScheme": "http",
+      "downstreamHostAndPorts": [
+        {
+          "host": "anime-clusterip-srv",
+          "port": 80
+        }
+      ]
+    },
+    {
       "downstreamPathTemplate": "/api/t/tag",
       "upstreamPathTemplate": "/api/tag",
       "upstreamHttpMethod": [
-        "Get",
         "Post",
         "Put"
       ],
@@ -53,6 +96,20 @@
         "authenticationProviderKey": "Bearer",
         "AllowedScopes": []
       }
+    },
+    {
+      "downstreamPathTemplate": "/api/t/tag",
+      "upstreamPathTemplate": "/api/tag",
+      "upstreamHttpMethod": [
+        "Get"
+      ],
+      "downstreamScheme": "http",
+      "downstreamHostAndPorts": [
+        {
+          "host": "tags-clusterip-srv",
+          "port": 80
+        }
+      ]
     },
     {
       "priority": 0,
