@@ -1,10 +1,26 @@
 {
   "Routes": [
     {
+      "downstreamPathTemplate": "/api/a/user/{}",
+      "upstreamPathTemplate": "/api/user/{}",
+      "upstreamHttpMethod": [
+        "Get",
+        "Post"
+      ],
+      "downstreamScheme": "http",
+      "downstreamHostAndPorts": [
+        {
+          "host": "auth-clusterip-srv",
+          "port": 80
+        }
+    },
+    {
       "downstreamPathTemplate": "/api/anime",
       "upstreamPathTemplate": "/api/anime",
       "upstreamHttpMethod": [
-        "Get", "Post", "Put"
+        "Get",
+        "Post",
+        "Put"
       ],
       "downstreamScheme": "http",
       "downstreamHostAndPorts": [
@@ -12,13 +28,19 @@
           "host": "anime-clusterip-srv",
           "port": 80
         }
-      ]
+      ],
+      "authenticationOptions": {
+        "authenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
     },
     {
       "downstreamPathTemplate": "/api/t/tag",
       "upstreamPathTemplate": "/api/tag",
       "upstreamHttpMethod": [
-        "Get", "Post", "Put"
+        "Get",
+        "Post",
+        "Put"
       ],
       "downstreamScheme": "http",
       "downstreamHostAndPorts": [
@@ -26,7 +48,11 @@
           "host": "tags-clusterip-srv",
           "port": 80
         }
-      ]
+      ],
+      "authenticationOptions": {
+        "authenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
     },
     {
       "priority": 0,
@@ -63,7 +89,8 @@
       "downstreamPathTemplate": "/api/t/anime/{animeId}/tag/{tagId}",
       "upstreamPathTemplate": "/api/anime/{animeId}/tag/{tagId}",
       "upstreamHttpMethod": [
-        "Delete", "Put"
+        "Delete",
+        "Put"
       ],
       "downstreamScheme": "http",
       "downstreamHostAndPorts": [
@@ -71,7 +98,11 @@
           "host": "tags-clusterip-srv",
           "port": 80
         }
-      ]
+      ],
+      "authenticationOptions": {
+        "authenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
     },
     {
       "priority": 0,
