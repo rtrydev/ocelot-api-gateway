@@ -1,7 +1,7 @@
 {
   "Routes": [
     {
-      "priority": 1,
+      "priority": 0,
       "downstreamPathTemplate": "/api/a/user/{id}",
       "upstreamPathTemplate": "/api/user/{id}",
       "upstreamHttpMethod": [
@@ -16,7 +16,7 @@
       ]
     },
     {
-      "priority": 0,
+      "priority": 1,
       "downstreamPathTemplate": "/api/a/user/login",
       "upstreamPathTemplate": "/api/user/login",
       "upstreamHttpMethod": [
@@ -31,7 +31,7 @@
       ]
     },
     {
-      "priority": 0,
+      "priority": 1,
       "downstreamPathTemplate": "/api/a/user/register",
       "upstreamPathTemplate": "/api/user/register",
       "upstreamHttpMethod": [
@@ -62,6 +62,9 @@
       "authenticationOptions": {
         "authenticationProviderKey": "Bearer",
         "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "http///schemas.microsoft.com/ws/2008/06/identity/claims/role": "Admin"
       }
     },
     {
@@ -95,6 +98,9 @@
       "authenticationOptions": {
         "authenticationProviderKey": "Bearer",
         "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "http///schemas.microsoft.com/ws/2008/06/identity/claims/role": "Admin"
       }
     },
     {
@@ -159,6 +165,9 @@
       "authenticationOptions": {
         "authenticationProviderKey": "Bearer",
         "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "http///schemas.microsoft.com/ws/2008/06/identity/claims/role": "Admin"
       }
     },
     {
