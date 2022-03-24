@@ -1,6 +1,7 @@
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using ocelot_api_gateway.Services;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 
@@ -26,6 +27,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 
 builder.Configuration.AddJsonFile("ocelot.json");
 builder.Services.AddOcelot();
+builder.Services.DecorateClaimAuthoriser();
 
 var app = builder.Build();
 
