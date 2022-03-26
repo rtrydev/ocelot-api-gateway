@@ -1,6 +1,73 @@
 {
   "Routes": [
     {
+      "priority": 1,
+      "downstreamPathTemplate": "/api/r/anime/{animeId}/rating",
+      "upstreamPathTemplate": "/api/anime/{animeId}/rating",
+      "upstreamHttpMethod": [
+        "Post"
+      ],
+      "downstreamScheme": "http",
+      "downstreamHostAndPorts": [
+        {
+          "host": "rating-clusterip-srv",
+          "port": 80
+        }
+      ],
+      "authenticationOptions": {
+        "authenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "http///schemas.microsoft.com/ws/2008/06/identity/claims/role": "User"
+      }
+    },
+    {
+      "priority": 1,
+      "downstreamPathTemplate": "/api/r/anime/{animeId}/rating",
+      "upstreamPathTemplate": "/api/anime/{animeId}/rating",
+      "upstreamHttpMethod": [
+        "Get"
+      ],
+      "downstreamScheme": "http",
+      "downstreamHostAndPorts": [
+        {
+          "host": "rating-clusterip-srv",
+          "port": 80
+        }
+      ]
+    },
+    {
+      "priority": 1,
+      "downstreamPathTemplate": "/api/r/anime/{animeId}/rating/avg",
+      "upstreamPathTemplate": "/api/anime/{animeId}/rating/avg",
+      "upstreamHttpMethod": [
+        "Get"
+      ],
+      "downstreamScheme": "http",
+      "downstreamHostAndPorts": [
+        {
+          "host": "rating-clusterip-srv",
+          "port": 80
+        }
+      ]
+    },
+    {
+      "priority": 1,
+      "downstreamPathTemplate": "/api/r/user/{userId}/rating",
+      "upstreamPathTemplate": "/api/user/{userId}/rating",
+      "upstreamHttpMethod": [
+        "Get"
+      ],
+      "downstreamScheme": "http",
+      "downstreamHostAndPorts": [
+        {
+          "host": "rating-clusterip-srv",
+          "port": 80
+        }
+      ]
+    },
+    {
       "priority": 0,
       "downstreamPathTemplate": "/api/a/user/{id}",
       "upstreamPathTemplate": "/api/user/{id}",
