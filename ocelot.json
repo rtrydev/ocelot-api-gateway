@@ -2,6 +2,81 @@
   "Routes": [
     {
       "priority": 1,
+      "downstreamPathTemplate": "/api/c/character",
+      "upstreamPathTemplate": "/api/character",
+      "upstreamHttpMethod": [
+        "Post",
+        "Put"
+      ],
+      "downstreamScheme": "http",
+      "downstreamHostAndPorts": [
+        {
+          "host": "character-clusterip-srv",
+          "port": 80
+        }
+      ],
+      "authenticationOptions": {
+        "authenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "http///schemas.microsoft.com/ws/2008/06/identity/claims/role": "Admin"
+      }
+    },
+    {
+      "priority": 1,
+      "downstreamPathTemplate": "/api/c/character/{id}",
+      "upstreamPathTemplate": "/api/character/{id}",
+      "upstreamHttpMethod": [
+        "Get"
+      ],
+      "downstreamScheme": "http",
+      "downstreamHostAndPorts": [
+        {
+          "host": "character-clusterip-srv",
+          "port": 80
+        }
+      ]
+    },
+    {
+      "priority": 1,
+      "downstreamPathTemplate": "/api/c/anime/{animeId}/character",
+      "upstreamPathTemplate": "/api/anime/{animeId}/character",
+      "upstreamHttpMethod": [
+        "Get"
+      ],
+      "downstreamScheme": "http",
+      "downstreamHostAndPorts": [
+        {
+          "host": "character-clusterip-srv",
+          "port": 80
+        }
+      ]
+    },
+    {
+      "priority": 1,
+      "downstreamPathTemplate": "/api/c/anime/{animeId}/character/{characterId}",
+      "upstreamPathTemplate": "/api/anime/{animeId}/character/{characterId}",
+      "upstreamHttpMethod": [
+        "Put"
+      ],
+      "downstreamScheme": "http",
+      "downstreamHostAndPorts": [
+        {
+          "host": "character-clusterip-srv",
+          "port": 80
+        }
+      ],
+      "authenticationOptions": {
+        "authenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "http///schemas.microsoft.com/ws/2008/06/identity/claims/role": "Admin"
+      }
+    },
+    {
+      "priority": 1,
       "downstreamPathTemplate": "/api/r/anime/{animeId}/rating",
       "upstreamPathTemplate": "/api/anime/{animeId}/rating",
       "upstreamHttpMethod": [
