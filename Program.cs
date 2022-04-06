@@ -12,6 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddCors();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(o =>
 {
@@ -32,6 +33,7 @@ builder.Services.DecorateClaimAuthoriser();
 var app = builder.Build();
 
 app.UseOcelot().Wait();
+app.UseCors(x => x.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod()).Build();
 
 app.UseHttpsRedirection();
 
